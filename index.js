@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const cors = require("cors");
+const PORT = process.env.PORT || 9000;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
 
 mongoose.connect(mongodb.url, mongodb.options).then(() => {
   console.log("Connected to MongoDB");
-  server = app.listen(9000, (res) => {
-    console.log(`Listening to port 9000`);
+  server = app.listen(PORT, (res) => {
+    console.log(`Listening to port ${PORT}`);
   });
 });
