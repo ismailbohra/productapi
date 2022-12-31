@@ -14,11 +14,13 @@ mongodb = {
     useUnifiedTopology: true,
   },
 };
+app.get("/", (req, res) => {
+  res.send("connected");
+});
 
 mongoose.connect(mongodb.url, mongodb.options).then(() => {
   console.log("Connected to MongoDB");
   server = app.listen(9000, (res) => {
-    res.send("products");
     console.log(`Listening to port 9000`);
   });
 });
