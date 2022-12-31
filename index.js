@@ -17,7 +17,8 @@ mongodb = {
 
 mongoose.connect(mongodb.url, mongodb.options).then(() => {
   console.log("Connected to MongoDB");
-  server = app.listen(9000, () => {
+  server = app.listen(9000, (res) => {
+    res.send("products");
     console.log(`Listening to port 9000`);
   });
 });
